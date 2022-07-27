@@ -9,8 +9,13 @@ class Counter extends React.Component {
         tags:['tag1', 'tag2' , 'tag3']
 
          } ;
-
-       
+         constructor(){
+            super();
+            this.handleIncrement.bind(this);
+         }
+         handleIncrement(){
+            console.log('Increment Clicked!', this);
+        }
 
     render() { 
        
@@ -19,16 +24,16 @@ class Counter extends React.Component {
             <div>
            
             <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-            <button className='btn btn-secondary btn-sm'>Increment</button>
+            <button onClick={this.handleIncrement} className='btn btn-secondary btn-sm'>Increment</button>
             <ul>
-                {this.state.tags.map(tag => <li key={tag}>{tag}</li>)}
+                {this.state.tags.map(tag => <li key={tag.toString()}>{tag}</li>)}
             </ul>
             </div>
             );
     
     }
 
-
+  
 
     //remember to put these methds outside render function
 
