@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Counter extends Component {
     state = { 
 
-        count : 0 ,
+        count : 0
 
          } ;
 
@@ -19,12 +19,15 @@ class Counter extends Component {
             <button className='btn btn-secondary btn-sm'>Increment</button>
             </React.Fragment>
             );
+    
+    }
 
-        function getBadgeClasses() {
-            let classes = 'badge m-2 badge-';
-            classes += (this.state.count === 0) ? 'warning' : 'primary';
-            return classes;
-        }
+    //remember to put these methds outside render function
+
+     getBadgeClasses() {
+        let classes = 'badge m-2 badge-';
+        classes += this.state.count === 0 ? 'warning' : 'primary';
+        return classes;
     }
     formatCount(){
         //using object destructuring
