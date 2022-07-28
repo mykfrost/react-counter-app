@@ -4,6 +4,14 @@ import Counters from './components/counters';
 import React from 'react';
 
 function App() {
+  state = {  
+    counters : [
+        {id: 1 , value : 4},
+        {id: 2 , value : 0},
+        {id: 3 , value : 0},
+        {id: 4 , value : 0}
+    ]
+} ;
   handleIncrement = counter =>{
     const counters = [...this.state.counters];
     const index = counters.indexOf(counter);
