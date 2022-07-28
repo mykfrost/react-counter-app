@@ -1,9 +1,9 @@
 import logo from './logo.svg';
 import NavBar from './components/navbar';
 import Counters from './components/counters';
-import React from 'react';
+import React, { Component } from 'react';
 
-function App() {
+class App extends Component {
   state = {  
     counters : [
         {id: 1 , value : 4},
@@ -32,15 +32,23 @@ handleReset =()=>{
     });
     this.setState({counters});
 }
+
+ render(){
   return (
  <React.Fragment>
    <NavBar/>
    <main className='container'>
-    <Counters></Counters>
+    <Counters 
+    counters ={this.state.counters}
+    onReset={this.handleReset}
+     onIncrement={this.handleIncrement}
+     onDelete={this.handleDelete}
+    ></Counters>
    </main>
  </React.Fragment>
 
   );
+}
 }
 
 export default App;
