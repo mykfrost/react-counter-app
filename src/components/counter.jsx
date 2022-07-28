@@ -9,15 +9,13 @@ class Counter extends Component {
 
          } ;  
 
-        handleIncrement = () => {
-            this.setState({value : this.state.value + 1});
-        };
+       
 
     render() { 
       // console.log('props',this.props);
         return (         
             <div>
-            <h4>{this.props.id}</h4>
+        
             <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
             <button
              onClick= { this.handleIncrement}
@@ -25,9 +23,9 @@ class Counter extends Component {
              >
                 Increment
              </button>
-            {/* <ul>
-                {this.state.tags.map(tag => <li key={tag.toString()}>{tag}</li>)}
-            </ul> */}
+            <button onClick={()=>this.props.onDelete(this.props.id)} className='btn btn-danger btn-sm m-2'>
+                Delete
+            </button>
             </div>
             );
     
@@ -36,6 +34,9 @@ class Counter extends Component {
   
 
     //remember to put these methds outside render function
+    handleIncrement = () => {
+        this.setState({value : this.state.value + 1});
+    };
 
      getBadgeClasses() {
         let classes = 'badge m-2 badge-';
